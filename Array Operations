@@ -1,0 +1,73 @@
+import java.util.Scanner;
+
+public class ArrayOperations {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        // Input array size
+        System.out.print("Enter the number of elements: ");
+        int n = sc.nextInt();
+
+        int[] arr = new int[n];
+
+        // Input array elements
+        System.out.println("Enter " + n + " elements:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        // 1. Display elements
+        System.out.println("\nArray elements are:");
+        for (int i = 0; i < n; i++) {
+            System.out.print(arr[i] + " ");
+        }
+
+        // 2. Find maximum and minimum
+        int max = arr[0];
+        int min = arr[0];
+        int sum = 0;
+
+        for (int i = 0; i < n; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
+            }
+
+            if (arr[i] < min) {
+                min = arr[i];
+            }
+
+            sum += arr[i];
+        }
+
+        // 3. Calculate average
+        double average = (double) sum / n;
+
+        System.out.println("\n\nMaximum element: " + max);
+        System.out.println("Minimum element: " + min);
+        System.out.println("Sum of elements: " + sum);
+        System.out.println("Average of elements: " + average);
+
+        // 4. Search for a specific element
+        System.out.print("\nEnter an element to search: ");
+        int search = sc.nextInt();
+
+        boolean found = false;
+
+        for (int i = 0; i < n; i++) {
+            if (arr[i] == search) {
+                System.out.println("Element " + search +
+                                   " found at index " + i);
+                found = true;
+                break;
+            }
+        }
+
+        if (!found) {
+            System.out.println("Element " + search + " not found in the array.");
+        }
+
+        sc.close();
+    }
+}
