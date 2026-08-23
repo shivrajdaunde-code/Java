@@ -1,0 +1,121 @@
+import java.util.Scanner;
+
+public class HotelBookingSystem {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        String[][] rooms = {
+            {"101", "Single", "1000", "0"},
+            {"102", "Single", "1000", "0"},
+            {"103", "Double", "2000", "0"},
+            {"104", "Double", "2000", "0"},
+            {"105", "Deluxe", "3000", "0"}
+        };
+
+        int choice;
+
+        do {
+            System.out.println("\n===== HOTEL BOOKING SYSTEM =====");
+            System.out.println("1. Display Rooms");
+            System.out.println("2. Book Room");
+            System.out.println("3. Cancel Booking");
+            System.out.println("4. Exit");
+            System.out.print("Enter your choice: ");
+
+            choice = sc.nextInt();
+
+            switch (choice) {
+
+                case 1:
+                    System.out.println("\nRoom No.\tType\t\tPrice\tStatus");
+
+                    for (int i = 0; i < rooms.length; i++) {
+
+                        String status;
+
+                        if (rooms[i][3].equals("0")) {
+                            status = "Available";
+                        } else {
+                            status = "Booked";
+                        }
+
+                        System.out.println(
+                            rooms[i][0] + "\t\t" +
+                            rooms[i][1] + "\t\t" +
+                            rooms[i][2] + "\t" +
+                            status
+                        );
+                    }
+                    break;
+
+                case 2:
+                    System.out.print("Enter room number to book: ");
+                    String bookRoom = sc.next();
+
+                    boolean booked = false;
+
+                    for (int i = 0; i < rooms.length; i++) {
+
+                        if (rooms[i][0].equals(bookRoom)) {
+
+                            if (rooms[i][3].equals("0")) {
+                                rooms[i][3] = "1";
+                                System.out.println("Room " + bookRoom + " booked successfully!");
+                            } else {
+                                System.out.println("Room is already booked.");
+                            }
+
+                            booked = true;
+                            break;
+                        }
+                    }
+
+                    if (!booked) {
+                        System.out.println("Room not found.");
+                    }
+
+                    break;
+
+                case 3:
+                    System.out.print("Enter room number to cancel: ");
+                    String cancelRoom = sc.next();
+
+                    boolean cancelled = false;
+
+                    for (int i = 0; i < rooms.length; i++) {
+
+                        if (rooms[i][0].equals(cancelRoom)) {
+
+                            if (rooms[i][3].equals("1")) {
+                                rooms[i][3] = "0";
+                                System.out.println("Booking cancelled successfully!");
+                            } else {
+                                System.out.println("Room is not booked.");
+                            }
+
+                            cancelled = true;
+                            break;
+                        }
+                    }
+
+                    if (!cancelled) {
+                        System.out.println("Room not found.");
+                    }
+
+                    break;
+
+                case 4:
+                    System.out.println("Thank you for using Hotel Booking System!");
+                    break;
+
+                default:
+                    System.out.println("Invalid choice!");
+            }
+
+        } while (choice != 4);
+
+        sc.close();
+    }
+}
