@@ -1,0 +1,25 @@
+class Addition {
+
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    int add(int a, int b, int c) {
+        return a + b + c;
+    }
+
+    double add(double a, double b) {
+        return a + b;
+    }
+}
+
+public class MethodOverloadingDemo {
+    public static void main(String[] args) {
+
+        Addition obj = new Addition();
+
+        System.out.println("Addition of two integers: " + obj.add(121, 43));
+        System.out.println("Addition of three integers: " + obj.add(100, 200));
+        System.out.println("Addition of two double values: " + obj.add(12.6, 13.2));
+    }
+}
