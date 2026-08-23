@@ -1,0 +1,24 @@
+public class power {
+    public static int absolute(int a) {
+        return java.lang.Math.abs(a);
+    }
+
+    public static double absolute(double a) {
+        return java.lang.Math.abs(a);
+    }
+    public static double power(double base, double exp) {
+        return java.lang.Math.pow(base, exp);
+    }
+
+    public static int power(int base, int exp) {
+        return (int) java.lang.Math.pow(base, exp);
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Absolute (int): " + absolute(-10));
+        System.out.println("Absolute (double): " + absolute(-5.5));
+        System.out.println("Power (double): " + power(2.0, 3.0));
+        System.out.println("Power (int): " + power(3, 2));
+
+    }
+} 
