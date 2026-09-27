@@ -1,0 +1,30 @@
+abstract class Vehicle {
+
+    // Abstract method
+    abstract void start();
+
+    // Concrete method
+    void stop() {
+        System.out.println("Vehicle stopped");
+    }
+}
+
+// Car extends Vehicle
+class Car extends Vehicle {
+
+    // Implementing abstract method
+    @Override
+    void start() {
+        System.out.println("Car starts with a key");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        Car car = new Car();
+
+        car.start();
+        car.stop();
+    }
+}
